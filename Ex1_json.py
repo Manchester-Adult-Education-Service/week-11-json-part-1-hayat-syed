@@ -220,11 +220,11 @@ with open ("books.json", "r") as file:
 # (Modify the code in Task 2 - Do not write new code here)
 # -------------------------------------------
 choice = "0"
-while choice != "4":
+while choice != "5":
     print("=== BOOK INVENTORY===")
-    print("1. View all books \n2. Search for book \n3. Calculate Total Inventory Value \n4. Exit")
+    print("1. View all books \n2. Search for book \n3. Calculate Total Inventory Value \n4. add New Book \n5. Exit")
     choice = input("Enter your option from main menu\n")
-    if choice == "4":
+    if choice == "5":
         print("GoodBye!")
     elif choice == "1":
         for book in library:
@@ -248,8 +248,26 @@ while choice != "4":
         for book in library:
             total_value = book["price"] * book["stock"]
             print(f"£{total_value}")
+
+    elif choice == "4":
+        new_title = input("Enter the book title\n")
+        new_author = input("Enter the book author\n")
+        new_genre = input("Enter the book genre\n")
+        new_price = float(input("Enter the book price\n"))
+        new_stock = int(input("Enter the book stock\n"))
+        
+        new_dic = {"title": new_title,
+                "author": new_author,
+                "genre": new_genre,
+                "price": new_price,
+                "stock": new_stock }
+        library.append(new_dic)
     else :
         print("Invalid Choice")
+
+with open ("books.json", "w") as file:
+    json.dump(library, file, indent =4)
+    
 
 # Extension 3: Saving Data (Writing JSON)
 # -------------------------------------------
