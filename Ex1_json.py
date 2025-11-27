@@ -89,31 +89,31 @@ with open ("books.json", "r") as file:
 #
 # Write your code below:
 # NOTE: This loop will become the "home" for all your future code!
-choice = "0"
-while choice != "3":
-    print("=== BOOK INVENTORY===")
-    print("1. View all books \n2. Search for book \n3. Exit")
-    choice = input("Enter your option from main menu\n")
-    if choice == "3":
-        print("GoodBye!")
-    elif choice == "1":
-        for book in library:
-            print()
-            print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
-            print()
-    elif choice == "2":
-        search_book = input("Enter the book title to search for\n").lower()
-        # search_book = python for beginners
-        found = False
-        for book in library:
-            if search_book == book["title"].lower():
-            # if "python for beginners" == "Python for Beginners"
-                found = True
-                print(f"ID:{book["id"]} | Title:{book["title"]} | Author:{book["author"]} |Stock: {book["stock"]}  ")
-        if found == False:
-            print("no book found with that title")
-    else :
-        print("Invalid Choice")
+# choice = "0"
+# while choice != "3":
+#     print("=== BOOK INVENTORY===")
+#     print("1. View all books \n2. Search for book \n3. Exit")
+#     choice = input("Enter your option from main menu\n")
+#     if choice == "3":
+#         print("GoodBye!")
+#     elif choice == "1":
+#         for book in library:
+#             print()
+#             print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
+#             print()
+#     elif choice == "2":
+#         search_book = input("Enter the book title to search for\n").lower()
+#         # search_book = python for beginners
+#         found = False
+#         for book in library:
+#             if search_book == book["title"].lower():
+#             # if "python for beginners" == "Python for Beginners"
+#                 found = True
+#                 print(f"ID:{book["id"]} | Title:{book["title"]} | Author:{book["author"]} |Stock: {book["stock"]}  ")
+#         if found == False:
+#             print("no book found with that title")
+#     else :
+#         print("Invalid Choice")
 
 
 
@@ -219,7 +219,37 @@ while choice != "3":
 #
 # (Modify the code in Task 2 - Do not write new code here)
 # -------------------------------------------
+choice = "0"
+while choice != "4":
+    print("=== BOOK INVENTORY===")
+    print("1. View all books \n2. Search for book \n3. Calculate Total Inventory Value \n4. Exit")
+    choice = input("Enter your option from main menu\n")
+    if choice == "4":
+        print("GoodBye!")
+    elif choice == "1":
+        for book in library:
+            print()
+            print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
+            print()
+    elif choice == "2":
+        search_book = input("Enter the book title to search for\n").lower()
+        # search_book = python for beginners
+        found = False
+        for book in library:
+            if search_book == book["title"].lower():
+            # if "python for beginners" == "Python for Beginners"
+                found = True
+                print(f"ID:{book["id"]} | Title:{book["title"]} | Author:{book["author"]} |Stock: {book["stock"]}  ")
+        if found == False:
+            print("no book found with that title")
 
+    elif choice == "3":
+        total_value = 0
+        for book in library:
+            total_value = book["price"] * book["stock"]
+            print(f"£{total_value}")
+    else :
+        print("Invalid Choice")
 
 # Extension 3: Saving Data (Writing JSON)
 # -------------------------------------------
