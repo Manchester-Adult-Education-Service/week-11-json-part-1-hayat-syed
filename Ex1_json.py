@@ -50,8 +50,9 @@ import json  # We need this tool to read the external file
 #     variable_name = json.load(file)
 #
 # Write your code below:
-
-
+with open ("books.json", "r") as file:
+    library =  json.load(file)
+    print(library)
 
 
 # -------------------------------------------
@@ -88,7 +89,31 @@ import json  # We need this tool to read the external file
 #
 # Write your code below:
 # NOTE: This loop will become the "home" for all your future code!
-
+# choice = "0"
+# while choice != "3":
+#     print("=== BOOK INVENTORY===")
+#     print("1. View all books \n2. Search for book \n3. Exit")
+#     choice = input("Enter your option from main menu\n")
+#     if choice == "3":
+#         print("GoodBye!")
+#     elif choice == "1":
+#         for book in library:
+#             print()
+#             print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
+#             print()
+#     elif choice == "2":
+#         search_book = input("Enter the book title to search for\n").lower()
+#         # search_book = python for beginners
+#         found = False
+#         for book in library:
+#             if search_book == book["title"].lower():
+#             # if "python for beginners" == "Python for Beginners"
+#                 found = True
+#                 print(f"ID:{book["id"]} | Title:{book["title"]} | Author:{book["author"]} |Stock: {book["stock"]}  ")
+#         if found == False:
+#             print("no book found with that title")
+#     else :
+#         print("Invalid Choice")
 
 
 
@@ -194,7 +219,55 @@ import json  # We need this tool to read the external file
 #
 # (Modify the code in Task 2 - Do not write new code here)
 # -------------------------------------------
+choice = "0"
+while choice != "5":
+    print("=== BOOK INVENTORY===")
+    print("1. View all books \n2. Search for book \n3. Calculate Total Inventory Value \n4. add New Book \n5. Exit")
+    choice = input("Enter your option from main menu\n")
+    if choice == "5":
+        print("GoodBye!")
+    elif choice == "1":
+        for book in library:
+            print()
+            print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
+            print()
+    elif choice == "2":
+        search_book = input("Enter the book title to search for\n").lower()
+        # search_book = python for beginners
+        found = False
+        for book in library:
+            if search_book == book["title"].lower():
+            # if "python for beginners" == "Python for Beginners"
+                found = True
+                print(f"ID:{book["id"]} | Title:{book["title"]} | Author:{book["author"]} |Stock: {book["stock"]}  ")
+        if found == False:
+            print("no book found with that title")
 
+    elif choice == "3":
+        total_value = 0
+        for book in library:
+            total_value = book["price"] * book["stock"]
+            print(f"£{total_value}")
+
+    elif choice == "4":
+        new_title = input("Enter the book title\n")
+        new_author = input("Enter the book author\n")
+        new_genre = input("Enter the book genre\n")
+        new_price = float(input("Enter the book price\n"))
+        new_stock = int(input("Enter the book stock\n"))
+        
+        new_dic = {"title": new_title,
+                "author": new_author,
+                "genre": new_genre,
+                "price": new_price,
+                "stock": new_stock }
+        library.append(new_dic)
+    else :
+        print("Invalid Choice")
+
+with open ("books.json", "w") as file:
+    json.dump(library, file, indent =4)
+    
 
 # Extension 3: Saving Data (Writing JSON)
 # -------------------------------------------
