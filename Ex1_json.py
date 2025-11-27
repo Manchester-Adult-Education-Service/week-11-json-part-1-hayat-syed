@@ -101,9 +101,17 @@ while choice != "3":
             print()
             print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
             print()
-
-
-
+    elif choice == "2":
+        search_book = input("Enter the book title to search for\n").lower()
+        # search_book = python for beginners
+        found = False
+        for book in library:
+            if search_book == book["title"].lower():
+            # if "python for beginners" == "Python for Beginners"
+                found = True
+                print(f"ID:{book["id"]} | Title:{book["title"]} | Author:{book["author"]} |Stock: {book["stock"]}  ")
+        if found == False:
+            print("no book found with that title")
     else :
         print("Invalid Choice")
 
