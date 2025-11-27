@@ -96,6 +96,14 @@ while choice != "3":
     choice = input("Enter your option from main menu\n")
     if choice == "3":
         print("GoodBye!")
+    elif choice == "1":
+        for book in library:
+            print()
+            print(f"ID: {book["id"]}| Title: {book["title"]} | Author:{book["author"]} | Stock: {book["stock"]}")
+            print()
+
+
+
     else :
         print("Invalid Choice")
 
